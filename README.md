@@ -6,7 +6,7 @@
 
 ![example](./afhq_example.png)  
 
-**Next: old README**
+**Next: original README**
 * Conditional model trained on WikiArt images [now available for download](https://archive.org/details/wikiart-stylegan2-conditional-model)
 * Take a look at the included notebooks for examples
 * Conditional support originally from @davidstap
