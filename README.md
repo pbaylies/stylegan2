@@ -1,6 +1,10 @@
-![Teaser image](./afhq.gif)
+![Teaser image](./afhq.gif)  
+
 **Upd: add conditional AFHQ StyleGAN2 and notebook for playing with it**
-* Animal_conditional_generation.ipynb
+* https://github.com/EvgenyKashin/stylegan2/releases/download/v1.0.0/network-snapshot-005532.pkl weights
+* https://github.com/EvgenyKashin/stylegan2/blob/master/Animal_conditional_generation.ipynb conditional generation, mixed generation, transition between labels
+
+![example](./afhq_example.png)  
 
 **Next: old README**
 * Conditional model trained on WikiArt images [now available for download](https://archive.org/details/wikiart-stylegan2-conditional-model)
