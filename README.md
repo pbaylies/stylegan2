@@ -1,5 +1,8 @@
-![Teaser image](./fake_art_portrait.jpg)
+![Teaser image](./afhq.gif)
+**Upd: add conditional AFHQ StyleGAN2 and notebook for playing with it**
+* Animal_conditional_generation.ipynb
 
+**Next: old README**
 * Conditional model trained on WikiArt images [now available for download](https://archive.org/details/wikiart-stylegan2-conditional-model)
 * Take a look at the included notebooks for examples
 * Conditional support originally from @davidstap
