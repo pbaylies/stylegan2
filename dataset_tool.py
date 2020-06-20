@@ -685,7 +685,8 @@ def create_from_images(tfrecord_dir, image_dir, shuffle, res_log2=7, resize=None
                 img = img[:3, ...]
             tfr.add_image(img)
 
-def create_from_images_raw(tfrecord_dir, image_dir, shuffle, res_log2=7, resize=None):
+def create_from_images_raw(tfrecord_dir, image_dir, shuffle, res_log2=7,
+                           resize=None, use_folder_as_label=False):
     print('Loading images from "%s"' % image_dir)
     image_filenames = _get_all_files(image_dir)
     print(f"detected {len(image_filenames)} images ...")
@@ -705,12 +706,18 @@ def create_from_images_raw(tfrecord_dir, image_dir, shuffle, res_log2=7, resize=
         )
         tfr.create_tfr_writer(img.shape)
         print("Adding the images to tfrecords ...")
+        all_labels = []
         for idx in range(order.size):
             if idx % 1000 == 0:
                 print ("added images", idx)
             with tf.gfile.FastGFile(image_filenames[order[idx]], 'rb') as fid:
                 encoded_jpg = fid.read()
                 tfr.add_image_raw(encoded_jpg)
+                fn = image_filenames[order[idx]]
+                labels = np.array(['cat' in fn, 'dog' in fn, 'wild' in fn])
+                labels = labels.astype(np.float32)
+                all_labels.append(labels)
+        tfr.add_labels(np.vstack(all_labels))
 # ----------------------------------------------------------------------------
 
 
